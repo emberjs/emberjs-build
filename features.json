@@ -1,0 +1,14 @@
+{
+  "features": {
+    "foo-bar": null,
+    "baz": true
+  },
+  "debugStatements": [
+    "Ember.warn",
+    "Ember.assert",
+    "Ember.deprecate",
+    "Ember.debug",
+    "Ember.Logger.info",
+    "Ember.runInDebug"
+  ]
+}

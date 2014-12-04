@@ -1,0 +1,30 @@
+{
+  "name": "emberjs-build",
+  "version": "0.0.1",
+  "description": "Build pipeline for Ember.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jshint . && mocha tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:twokul/emberjs-build.git"
+  },
+  "keywords": [
+    "ember.js",
+    "ember"
+  ],
+  "author": "Alex Navasardyan <alex.navasardyan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twokul/emberjs-build/issues"
+  },
+  "homepage": "https://github.com/twokul/emberjs-build",
+  "devDependencies": {
+    "broccoli": "0.12.0",
+    "expect.js": "^0.3.1",
+    "jshint": "^2.5.10",
+    "mocha": "^2.0.1",
+    "walk-sync": "^0.1.3"
+  }
+}
