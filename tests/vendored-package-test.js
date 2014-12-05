@@ -6,12 +6,21 @@ var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
 
 var vendoredPackage = require('../lib/vendored-package');
-var testLibPath     = path.join(__dirname, 'fixtures/packages/foo-bar/lib');
+var testLibPath     = path.join(__dirname, 'fixtures/packages/loader/lib');
+var expectedPath    = path.join(__dirname, 'expected/packages');
+
+/*
+  Input:
+    loader/
+      main.js
+
+  Output:
+    loader.js
+    loader/
+*/
 
 describe('vendored-package', function() {
   var builder;
-
-  var expectedPath = path.join(__dirname, 'expected/packages');
 
   afterEach(function() {
     if (builder) {
@@ -20,7 +29,7 @@ describe('vendored-package', function() {
   });
 
   it('correctly converts the tree from `packages/foo-bar/lib/main.js` to `/foo-bar.js`', function() {
-    var tree = vendoredPackage('foo-bar', {
+    var tree = vendoredPackage('loader', {
       libPath: testLibPath
     });
 
