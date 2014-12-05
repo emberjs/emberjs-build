@@ -21,10 +21,18 @@
   },
   "homepage": "https://github.com/twokul/emberjs-build",
   "devDependencies": {
-    "broccoli": "0.12.0",
     "expect.js": "^0.3.1",
     "jshint": "^2.5.10",
     "mocha": "^2.0.1",
     "walk-sync": "^0.1.3"
+  },
+  "dependencies": {
+    "broccoli": "0.12.0",
+    "broccoli-es3-safe-recast": "^1.0.0",
+    "broccoli-es6-module-transpiler": "~0.1.0",
+    "broccoli-file-mover": "~0.2.0",
+    "broccoli-funnel": "^0.1.6",
+    "broccoli-static-compiler": "0.1.4",
+    "broccoli-use-strict-remover": "^1.0.0"
   }
 }

@@ -6,7 +6,7 @@ var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
 
 var vendoredPackage = require('../lib/vendored-package');
-var testLibPath     = 'tests/fixtures/packages/foo-bar/lib';
+var testLibPath     = path.join(__dirname, 'fixtures/packages/foo-bar/lib');
 
 describe('vendored-package', function() {
   var builder;
@@ -15,14 +15,14 @@ describe('vendored-package', function() {
 
   afterEach(function() {
     if (builder) {
-      return builder.cleanup();
+      // return builder.cleanup();
     }
   });
 
   it('correctly converts the tree from `packages/foo-bar/lib/main.js` to `/foo-bar.js`', function() {
     var tree = vendoredPackage('foo-bar', {
       libPath: testLibPath
-    }, true, true);
+    });
 
     builder = new broccoli.Builder(tree);
 
