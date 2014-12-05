@@ -17,6 +17,20 @@ describe('htmlbars-package', function() {
     }
   });
 
+  /*
+    Input:
+      morph/
+        dom-helper/
+        dom-helper.js
+        morph.js
+
+    Output:
+      morph/
+        dom-helper/
+        dom-helper.js
+        morph.js
+      morph.js
+  */
   it('correctly creates a htmlbars tree', function() {
     var expectedPath = path.join(__dirname, 'expected/htmlbars-util');
 
@@ -34,6 +48,13 @@ describe('htmlbars-package', function() {
       });
   });
 
+  /*
+    Input:
+      htmlbars-test-helpers.js
+
+    Output:
+      htmlbars-test-helpers.js
+  */
   it('correctly creates a htmlbars tree when singleFile is true', function() {
     var expectedPath = path.join(__dirname, 'expected/htmlbars-test-helpers');
 
