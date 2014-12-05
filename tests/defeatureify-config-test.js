@@ -1,6 +1,6 @@
 'use strict';
 
-var expect = require('expect.js');
+var expect = require('chai').expect;
 
 var defeatureifyConfig = require('../lib/defeatureify-config');
 var debugStatements = [
@@ -16,7 +16,7 @@ describe('defeatureify-config', function() {
   it('returns correct configuration object', function() {
     var config = defeatureifyConfig();
 
-    expect(config).to.be.eql({
+    expect(config).to.deep.equal({
       enabled: {
         'foo-bar': null,
         'baz': true
@@ -33,7 +33,7 @@ describe('defeatureify-config', function() {
       environment: 'production'
     });
 
-    expect(config).to.be.eql({
+    expect(config).to.deep.equal({
       enabled: {
         'foo-bar': null,
         'baz': true

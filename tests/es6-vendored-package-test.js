@@ -1,7 +1,7 @@
 'use strict';
 
 var path     = require('path');
-var expect   = require('expect.js');
+var expect   = require('chai').expect;
 var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
 
@@ -30,7 +30,7 @@ describe('es6-vendored-package', function() {
       .then(function(results) {
         var outputPath = results.directory;
 
-        expect(walkSync(outputPath)).to.eql(walkSync(expectedPath));
+        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
       });
   });
 });
