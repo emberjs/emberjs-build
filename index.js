@@ -5,11 +5,13 @@ var es6VendoredPackage = require('./lib/es6-vendored-package');
 var htmlbarsPackage    = require('./lib/htmlbars-package');
 var defeatureifyConfig = require('./lib/defeatureify-config');
 var buildConfig        = require('./lib/build-config');
+var testConfigTree     = require('./lib/test-config-tree');
 
 module.exports = {
   vendoredPackage:    vendoredPackage,
   es6VendoredPackage: es6VendoredPackage,
   htmlbarsPackage:    htmlbarsPackage,
   defeatureifyConfig: defeatureifyConfig,
-  buildConfig:        buildConfig
+  buildConfig:        buildConfig,
+  getTestConfigTree:  testConfigTree
 };
