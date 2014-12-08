@@ -1,17 +1,17 @@
 'use strict';
 
-var vendoredPackage    = require('./lib/vendored-package');
-var es6VendoredPackage = require('./lib/es6-vendored-package');
-var htmlbarsPackage    = require('./lib/htmlbars-package');
-var defeatureifyConfig = require('./lib/defeatureify-config');
-var buildConfig        = require('./lib/build-config');
-var testConfigTree     = require('./lib/test-config-tree');
+var defeatureifyConfig     = require('./lib/defeatureify-config');
+var buildConfig            = require('./lib/build-config');
+var testConfigTree         = require('./lib/test-config-tree');
+var getBowerTree           = require('./lib/bower-tree');
+var getEmberDevTestHelpers = require('./lib/ember-dev-test-helpers');
+var getVendoredPackages    = require('./lib/get-vendored-packages');
 
 module.exports = {
-  vendoredPackage:    vendoredPackage,
-  es6VendoredPackage: es6VendoredPackage,
-  htmlbarsPackage:    htmlbarsPackage,
-  defeatureifyConfig: defeatureifyConfig,
-  buildConfig:        buildConfig,
-  getTestConfigTree:  testConfigTree
+  defeatureifyConfig:     defeatureifyConfig,
+  buildConfig:            buildConfig,
+  getVendoredPackages:    getVendoredPackages,
+  getTestConfigTree:      testConfigTree,
+  getBowerTree:           getBowerTree,
+  getEmberDevTestHelpers: getEmberDevTestHelpers
 };
