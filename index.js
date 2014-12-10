@@ -7,10 +7,7 @@ var getBowerTree           = require('./lib/bower-tree');
 var getEmberDevTestHelpers = require('./lib/ember-dev-test-helpers');
 var getVendoredPackages    = require('./lib/get-vendored-packages');
 var getS3TestRunner        = require('./lib/s3-test-runner');
-
-var vendoredPackage        = require('./lib/vendored-package');
-var htmlbarsPackage        = require('./lib/htmlbars-package');
-var vendoredES6Package     = require('./lib/es6-vendored-package');
+var getPackages            = require('./lib/get-packages');
 
 module.exports = {
   defeatureifyConfig:     defeatureifyConfig,
@@ -20,7 +17,5 @@ module.exports = {
   getBowerTree:           getBowerTree,
   getEmberDevTestHelpers: getEmberDevTestHelpers,
   getS3TestRunner:        getS3TestRunner,
-  vendoredPackage:        vendoredPackage,
-  htmlbarsPackage:        htmlbarsPackage,
-  vendoredES6Package:     vendoredES6Package
+  getPackages:            getPackages
 };
