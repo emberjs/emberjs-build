@@ -16,8 +16,7 @@ var vendoredPackages = [
   'htmlbars-syntax',
   'simple-html-tokenizer',
   'htmlbars-test-helpers',
-  'htmlbars-util',
-  'handlebars'
+  'htmlbars-util'
 ];
 
 describe('get-vendored-packages', function() {

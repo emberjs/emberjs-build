@@ -8,16 +8,19 @@ var getEmberDevTestHelpers   = require('./lib/ember-dev-test-helpers');
 var getVendoredPackages      = require('./lib/get-vendored-packages');
 var getS3TestRunner          = require('./lib/s3-test-runner');
 var packages                 = require('./lib/packages');
-var getPackageDependencyTree = require('./lib/get-package-dependency-tree');
+
+var concatES6                = require('./lib/concat-es6');
+var es6Package               = require('./lib/get-es6-package');
 
 module.exports = {
-  defeatureifyConfig:       defeatureifyConfig,
-  buildConfig:              buildConfig,
-  getVendoredPackages:      getVendoredPackages,
-  getTestConfigTree:        testConfigTree,
-  getBowerTree:             getBowerTree,
-  getEmberDevTestHelpers:   getEmberDevTestHelpers,
-  getS3TestRunner:          getS3TestRunner,
-  packages:                 packages,
-  getPackageDependencyTree: getPackageDependencyTree
+  defeatureifyConfig:      defeatureifyConfig,
+  buildConfig:             buildConfig,
+  getVendoredPackages:     getVendoredPackages,
+  getTestConfigTree:       testConfigTree,
+  getBowerTree:            getBowerTree,
+  getEmberDevTestHelpers:  getEmberDevTestHelpers,
+  getS3TestRunner:         getS3TestRunner,
+  packages:                packages,
+  concatES6:               concatES6,
+  es6Package:              es6Package
 };

@@ -7,7 +7,7 @@ var broccoli = require('broccoli');
 
 var vendoredPackage = require('../lib/vendored-package');
 var testLibPath     = path.join(__dirname, 'fixtures/packages/loader/lib');
-var expectedPath    = path.join(__dirname, 'expected/packages');
+var expectedPath    = path.join(__dirname, 'expected/packages/loader');
 
 /*
   Input:
