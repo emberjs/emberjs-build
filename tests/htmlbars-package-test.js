@@ -32,7 +32,7 @@ describe('htmlbars-package', function() {
       morph.js
   */
   it('correctly creates a htmlbars tree', function() {
-    var expectedPath = path.join(__dirname, 'expected/htmlbars-util');
+    var expectedPath = path.join(__dirname, 'expected/node_modules/htmlbars/htmlbars-util');
 
     var tree = htmlbarsPackage('htmlbars-util', {
       libPath: testLibPath
@@ -56,7 +56,7 @@ describe('htmlbars-package', function() {
       htmlbars-test-helpers.js
   */
   it('correctly creates a htmlbars tree when singleFile is true', function() {
-    var expectedPath = path.join(__dirname, 'expected/htmlbars-test-helpers');
+    var expectedPath = path.join(__dirname, 'expected/node_modules/htmlbars/htmlbars-test-helpers');
 
     var tree = htmlbarsPackage('htmlbars-test-helpers', {
       singleFile: true,
