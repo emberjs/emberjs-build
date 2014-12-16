@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var defeatureifyConfig = require('../lib/defeatureify-config');
+var defeatureifyConfig = require('../../lib/defeatureify-config');
 var debugStatements = [
   'Ember.warn',
   'Ember.assert',

@@ -4,7 +4,7 @@
   "description": "Build pipeline for Ember.js",
   "main": "index.js",
   "scripts": {
-    "test": "jshint . && mocha tests/"
+    "test": "jshint . && mocha tests/*"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/twokul/emberjs-build",
   "devDependencies": {
     "chai": "^1.10.0",
+    "chai-fs": "^0.1.0",
     "jshint": "^2.5.10",
     "mocha": "^2.0.1",
     "walk-sync": "^0.1.3"
@@ -29,20 +30,21 @@
   "dependencies": {
     "broccoli": "0.12.0",
     "broccoli-concat": "0.0.6",
-    "broccoli-defeatureify": "^1.0.0",
+    "broccoli-defeatureify": "~0.3.0",
     "broccoli-derequire": "0.0.1",
-    "broccoli-es3-safe-recast": "^1.0.0",
+    "broccoli-es3-safe-recast": "0.0.8",
     "broccoli-es6-module-transpiler": "~0.1.0",
     "broccoli-file-creator": "~0.1.0",
     "broccoli-file-mover": "~0.2.0",
     "broccoli-file-remover": "~0.2.0",
-    "broccoli-filter": "~0.1.10",
+    "broccoli-filter": "~0.1.6",
     "broccoli-funnel": "^0.1.6",
-    "broccoli-jshint": "^0.5.3",
-    "broccoli-merge-trees": "^0.2.1",
-    "broccoli-replace": "^0.2.0",
+    "broccoli-jshint": "^0.5.1",
+    "broccoli-merge-trees": "0.1.3",
+    "broccoli-replace": "~0.1.6",
     "broccoli-static-compiler": "0.1.4",
     "broccoli-use-strict-remover": "^1.0.0",
+    "broccoli-writer": "~0.1.1",
     "es6-module-transpiler": "~0.4.0",
     "htmlbars": "^0.4.1"
   }

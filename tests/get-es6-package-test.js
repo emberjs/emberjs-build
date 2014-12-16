@@ -23,24 +23,24 @@ describe('get-es6-package', function() {
 
   afterEach(function() {
     if (builder) {
-      // return builder.cleanup();
+      return builder.cleanup();
     }
 
     expectedPath = null;
   });
 
-  // it('correctly creates a lib tree', function() {
-    // expectedPath = path.join(__dirname, 'expected/packages/ember-metal/');
+  it('correctly creates a lib tree', function() {
+    expectedPath = path.join(__dirname, 'expected/packages/ember-metal/');
 
-    // builder = new broccoli.Builder(fullTree.lib);
+    builder = new broccoli.Builder(fullTree.lib);
 
-    // return builder.build()
-      // .then(function(results) {
-        // var outputPath = results.directory;
+    return builder.build()
+      .then(function(results) {
+        var outputPath = results.directory;
 
-        // expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
-      // });
-  // });
+        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
+      });
+  });
 
   // it('correctly creates a compiled tree', function() {
     // builder = new broccoli.Builder(fullTree.compiledTree);
@@ -66,16 +66,16 @@ describe('get-es6-package', function() {
       // });
   // });
 
-  it('correctly creates a tests tree', function() {
-    builder = new broccoli.Builder(fullTree.tests);
+  // it('correctly creates a tests tree', function() {
+    // builder = new broccoli.Builder(fullTree.tests);
 
-    expectedPath = path.join(__dirname, 'expected/packages/ember-metal-tests-tree/');
+    // expectedPath = path.join(__dirname, 'expected/packages/ember-metal-tests-tree/');
 
-    return builder.build()
-      .then(function(results) {
-        var outputPath = results.directory;
+    // return builder.build()
+      // .then(function(results) {
+        // var outputPath = results.directory;
 
-        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
-      });
-  });
+        // expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
+      // });
+  // });
 });
