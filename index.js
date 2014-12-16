@@ -11,6 +11,7 @@ var packages                 = require('./lib/packages');
 
 var concatES6                = require('./lib/concat-es6');
 var es6Package               = require('./lib/get-es6-package');
+var buildRuntimeTree         = require('./lib/get-build-runtime-tree');
 
 module.exports = {
   defeatureifyConfig:      defeatureifyConfig,
@@ -22,5 +23,6 @@ module.exports = {
   getS3TestRunner:         getS3TestRunner,
   packages:                packages,
   concatES6:               concatES6,
-  es6Package:              es6Package
+  es6Package:              es6Package,
+  buildRuntimeTree:        buildRuntimeTree
 };
