@@ -8,18 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:twokul/emberjs-build.git"
+    "url": "git@github.com:emberjs/emberjs-build.git"
   },
   "keywords": [
     "ember.js",
     "ember"
   ],
-  "author": "Alex Navasardyan <alex.navasardyan@gmail.com>",
+  "author": [
+    "Alex Navasardyan <alex.navasardyan@gmail.com>",
+    "Robert Jackson <me@rwjblue.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/twokul/emberjs-build/issues"
+    "url": "https://github.com/emberjs/emberjs-build/issues"
   },
-  "homepage": "https://github.com/twokul/emberjs-build",
+  "homepage": "https://github.com/emberjs/emberjs-build",
   "devDependencies": {
     "chai": "^1.10.0",
     "chai-fs": "^0.1.0",
