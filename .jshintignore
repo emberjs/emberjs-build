@@ -1,4 +1,5 @@
-tmp/
-node_modules/
-tests/fixtures/
-tests/expected/
+tmp/*
+bower_components/*
+node_modules/*
+tests/fixtures/*
+tests/expected/*
