@@ -7,7 +7,6 @@ var broccoli = require('broccoli');
 
 var vendoredPackage = require('../lib/vendored-package');
 var testLibPath     = path.join(__dirname, 'fixtures/packages/loader/lib');
-var expectedPath    = path.join(__dirname, 'expected/packages/loader');
 
 /*
   Input:
@@ -39,7 +38,7 @@ describe('vendored-package', function() {
       .then(function(results) {
         var outputPath = results.directory;
 
-        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
+        expect(walkSync(outputPath)).to.deep.equal(['loader/', 'loader.js']);
       });
   });
 });
