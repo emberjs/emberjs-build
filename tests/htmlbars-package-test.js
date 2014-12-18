@@ -1,6 +1,5 @@
 'use strict';
 
-var path     = require('path');
 var expect   = require('chai').expect;
 var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
@@ -32,11 +31,15 @@ describe('htmlbars-package', function() {
       morph.js
   */
   it('correctly creates a htmlbars tree', function() {
-    var expectedPath = path.join(__dirname, 'expected/node_modules/htmlbars/htmlbars-util');
+    var expected = [
+      'htmlbars-util/',
+      'htmlbars-util/safe-string.js',
+      'htmlbars-util.js'
+    ];
 
     var tree = htmlbarsPackage('htmlbars-util', {
       libPath: testLibPath
-    }, true, true);
+    });
 
     builder = new broccoli.Builder(tree);
 
@@ -44,7 +47,7 @@ describe('htmlbars-package', function() {
       .then(function(results) {
         var outputPath = results.directory;
 
-        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
+        expect(walkSync(outputPath)).to.deep.equal(expected);
       });
   });
 
@@ -56,12 +59,10 @@ describe('htmlbars-package', function() {
       htmlbars-test-helpers.js
   */
   it('correctly creates a htmlbars tree when singleFile is true', function() {
-    var expectedPath = path.join(__dirname, 'expected/node_modules/htmlbars/htmlbars-test-helpers');
-
     var tree = htmlbarsPackage('htmlbars-test-helpers', {
       singleFile: true,
       libPath: testLibPath
-    }, true, true);
+    });
 
     builder = new broccoli.Builder(tree);
 
@@ -69,7 +70,7 @@ describe('htmlbars-package', function() {
       .then(function(results) {
         var outputPath = results.directory;
 
-        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
+        expect(walkSync(outputPath)).to.deep.equal(['htmlbars-test-helpers.js']);
       });
   });
 });
