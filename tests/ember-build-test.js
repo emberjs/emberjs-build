@@ -3,7 +3,8 @@
 var chai   = require('chai');
 var expect = chai.expect;
 
-var EmberBuild = require('../lib/ember-build');
+var EmberBuild              = require('../lib/ember-build');
+var ensureMethodReturnsTree = require('./helpers/ensure-method-returns-tree');
 
 describe('ember-build', function() {
   it('exists and is a function', function() {
@@ -28,6 +29,13 @@ describe('ember-build', function() {
       testingCompiledSource: null
     });
   });
+
+  ensureMethodReturnsTree('_generateCompiledSourceTree');
+  ensureMethodReturnsTree('_generateProdCompiledSourceTree');
+  ensureMethodReturnsTree('_generateCompiledTestsTree');
+  ensureMethodReturnsTree('_generateProdCompiledTestsTree');
+  ensureMethodReturnsTree('_generateDeprecatedDebugFileTree');
+  ensureMethodReturnsTree('_generateMinifiedCompiledSourceTree');
 
   describe('enumeratePackages', function() {
     it('returns a proper tree', function() {
