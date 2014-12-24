@@ -1,6 +1,12 @@
 
 (function() {
 
+define("ember-metal",
+  [],
+  function() {
+    "use strict";
+
+  });
 define("ember-metal.jshint",
   [],
   function() {
@@ -9,6 +15,12 @@ define("ember-metal.jshint",
     test('ember-metal.js should pass jshint', function() { 
       ok(true, 'ember-metal.js should pass jshint.'); 
     });
+  });
+define("ember-metal/alias",
+  [],
+  function() {
+    "use strict";
+
   });
 define("ember-metal/alias.jshint",
   [],
@@ -19,6 +31,12 @@ define("ember-metal/alias.jshint",
       ok(true, 'ember-metal/alias.js should pass jshint.'); 
     });
   });
+define("ember-metal/array",
+  [],
+  function() {
+    "use strict";
+
+  });
 define("ember-metal/array.jshint",
   [],
   function() {
@@ -28,6 +46,12 @@ define("ember-metal/array.jshint",
       ok(true, 'ember-metal/array.js should pass jshint.'); 
     });
   });
+define("ember-metal/binding",
+  [],
+  function() {
+    "use strict";
+
+  });
 define("ember-metal/binding.jshint",
   [],
   function() {
@@ -36,6 +60,12 @@ define("ember-metal/binding.jshint",
     test('ember-metal/binding.js should pass jshint', function() { 
       ok(true, 'ember-metal/binding.js should pass jshint.'); 
     });
+  });
+define("ember-metal/streams/simple",
+  [],
+  function() {
+    "use strict";
+
   });
 define("ember-metal/streams/simple.jshint",
   [],
