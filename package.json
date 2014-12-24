@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/emberjs/emberjs-build",
   "devDependencies": {
+    "broccoli-jscs": "0.0.12",
     "chai": "^1.10.0",
     "chai-fs": "^0.1.0",
     "mocha": "^2.0.1",

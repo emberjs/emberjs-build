@@ -9,6 +9,7 @@ describe('build config', function() {
     expect(buildConfig).to.deep.equal({
       isDevelopment:       true,
       disableJSHint:       false,
+      disableJSCS:         false,
       disableES3:          false,
       disableMin:          false,
       enableDocs:          false,
