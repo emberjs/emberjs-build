@@ -97,11 +97,9 @@ describe('ember-build', function() {
 
       emberBuild = new EmberBuild({
         packages: {
-          container: {
-            trees:              null,
-            requirements:       [],
-            vendorRequirements: []
-          }
+          'container': {},
+          'ember-metal': {},
+          'ember-template-compiler': {}
         }
       });
     });

@@ -14,8 +14,11 @@ var expectedPath;
 
 describe('get-es6-package', function() {
   var builder;
+  var packages = {
+    'ember-metal': { }
+  };
 
-  var fullTree = getES6Package('ember-metal', {
+  var fullTree = getES6Package(packages, 'ember-metal', {
     libPath:  fixtureLibPath,
     testPath: fixtureTestPath
   });
