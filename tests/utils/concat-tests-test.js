@@ -11,13 +11,14 @@ var readContent   = require('../helpers/file');
 var getES6Package = require('../../lib/get-es6-package');
 var concatES6     = require('../../lib/utils/concat-es6');
 
-var fixtureLibPath  = path.join(__dirname, 'fixtures/packages/ember-metal/lib');
-var fixtureTestPath = path.join(__dirname, 'fixtures/packages/ember-metal/tests');
+var fixtureLibPath  = path.join(__dirname, '../fixtures/packages/ember-metal/lib');
+var fixtureTestPath = path.join(__dirname, '../fixtures/packages/ember-metal/tests');
 
 describe('concat-es6', function() {
   var builder;
+  var packages = { 'ember-metal': {} };
 
-  var fullTree = getES6Package('ember-metal', {
+  var fullTree = getES6Package(packages, 'ember-metal', {
     libPath:  fixtureLibPath,
     testPath: fixtureTestPath
   });
