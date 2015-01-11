@@ -6,7 +6,7 @@ var expect   = require('chai').expect;
 var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
 
-var getTestConfigTree = require('../../lib/test-config-tree');
+var getTestConfigTree = require('../../lib/config/test-config-tree');
 var testLibPath       = path.join(__dirname, '../fixtures/tests');
 var expectedPath      = path.join(__dirname, '../expected/tests');
 

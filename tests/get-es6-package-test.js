@@ -23,7 +23,6 @@ describe('get-es6-package', function() {
     testPath: fixtureTestPath
   });
 
-
   afterEach(function() {
     if (builder) {
       return builder.cleanup();
