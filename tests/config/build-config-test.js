@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var buildConfig = require('../../lib/build-config');
+var buildConfig = require('../../lib/config/build-config');
 
 describe('build config', function() {
   it('returns correct default configuration object', function() {

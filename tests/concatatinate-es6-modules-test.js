@@ -7,14 +7,14 @@ var broccoli = require('broccoli');
 
 chai.use(require('chai-fs'));
 
-var readContent   = require('../helpers/file');
-var getES6Package = require('../../lib/get-es6-package');
-var concatES6     = require('../../lib/utils/concat-es6');
+var readContent           = require('./helpers/file');
+var getES6Package         = require('../lib/get-es6-package');
+var concatenateES6Modules = require('../lib/concatenate-es6-modules');
 
-var fixtureLibPath  = path.join(__dirname, '../fixtures/packages/ember-metal/lib');
-var fixtureTestPath = path.join(__dirname, '../fixtures/packages/ember-metal/tests');
+var fixtureTestPath = path.join(__dirname, './fixtures/packages/ember-metal/tests');
+var fixtureLibPath  = path.join(__dirname, './fixtures/packages/ember-metal/lib');
 
-describe('concat-es6', function() {
+describe('concatenate-es6-modules', function() {
   var builder;
   var packages = { 'ember-metal': {} };
 
@@ -30,10 +30,10 @@ describe('concat-es6', function() {
   });
 
   it('correctly concats test tree into one file properly', function() {
-    var expectedFilePath = path.join(__dirname, '../expected/packages/ember-tests.js');
+    var expectedFilePath = path.join(__dirname, './expected/packages/ember-tests.js');
     var expectedContent  = readContent(expectedFilePath);
 
-    var compiledTests = concatES6(fullTree.tests, {
+    var compiledTests = concatenateES6Modules(fullTree.tests, {
       es3Safe:   false,
       derequire: false,
       includeLoader: true,
