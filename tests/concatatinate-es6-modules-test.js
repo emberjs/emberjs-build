@@ -11,8 +11,9 @@ chai.use(require('chai-fs'));
 var readContent           = require('./helpers/file');
 var concatenateES6Modules = require('../lib/concatenate-es6-modules');
 
-var generatorsPath   = path.join(__dirname, './fixtures/generators');
-var fixturesTestPath = path.join(__dirname, './fixtures/concat-tests');
+var generatorsPath     = path.join(__dirname, './fixtures/generators');
+var fixturesTestPath   = path.join(__dirname, './fixtures/concat-tests');
+var fixturesLoaderPath = path.join(__dirname, './fixtures/loader');
 
 describe('concatenate-es6-modules', function() {
   var builder;
@@ -20,6 +21,12 @@ describe('concatenate-es6-modules', function() {
   var testTree = pickFiles(fixturesTestPath, {
     srcDir: '/',
     files: ['**/*.js'],
+    destDir: '/'
+  });
+
+  var loaderTree = pickFiles(fixturesLoaderPath, {
+    srcDir: '/',
+    files: ['loader.js'],
     destDir: '/'
   });
 
@@ -39,7 +46,8 @@ describe('concatenate-es6-modules', function() {
       includeLoader: true,
       inputFiles: ['**/*.js'],
       destFile: '/ember-tests.js',
-      generators: generatorsPath
+      generators: generatorsPath,
+      loader:     loaderTree
     });
 
     builder = new broccoli.Builder(compiledTests);
