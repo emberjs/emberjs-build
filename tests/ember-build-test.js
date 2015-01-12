@@ -1,7 +1,7 @@
 'use strict';
 
-var chai   = require('chai');
-var expect = chai.expect;
+var chai     = require('chai');
+var expect   = chai.expect;
 
 var EmberBuild              = require('../lib/ember-build');
 var ensureMethodReturnsTree = require('./helpers/ensure-method-returns-tree');

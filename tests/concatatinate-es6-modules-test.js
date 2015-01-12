@@ -3,8 +3,8 @@
 var chai     = require('chai');
 var path     = require('path');
 var expect   = chai.expect;
+var Funnel   = require('broccoli-funnel');
 var broccoli = require('broccoli');
-var pickFiles = require('broccoli-static-compiler');
 
 chai.use(require('chai-fs'));
 
@@ -18,14 +18,12 @@ var fixturesLoaderPath = path.join(__dirname, './fixtures/loader');
 describe('concatenate-es6-modules', function() {
   var builder;
 
-  var testTree = pickFiles(fixturesTestPath, {
-    srcDir: '/',
-    files: ['**/*.js'],
+  var testTree = new Funnel(fixturesTestPath, {
+    includes: [ /js$/ ],
     destDir: '/'
   });
 
-  var loaderTree = pickFiles(fixturesLoaderPath, {
-    srcDir: '/',
+  var loaderTree = new Funnel(fixturesLoaderPath, {
     files: ['loader.js'],
     destDir: '/'
   });
@@ -44,7 +42,6 @@ describe('concatenate-es6-modules', function() {
       es3Safe:   false,
       derequire: false,
       includeLoader: true,
-      inputFiles: ['**/*.js'],
       destFile: '/ember-tests.js',
       generators: generatorsPath,
       loader:     loaderTree

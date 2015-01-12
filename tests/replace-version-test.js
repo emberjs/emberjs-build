@@ -5,7 +5,7 @@ var path      = require('path');
 var expect    = chai.expect;
 var broccoli  = require('broccoli');
 var walkSync  = require('walk-sync');
-var pickFiles = require('broccoli-static-compiler');
+var Funnel    = require('broccoli-funnel');
 
 var readContent    = require('./helpers/file');
 var replaceVersion = require('../lib/utils/replace-version');
@@ -17,9 +17,8 @@ var fixturesPath = path.join(__dirname, './fixtures/versioned-files');
 describe('replace-version', function() {
   var builder;
 
-  var trees = pickFiles(fixturesPath, {
-    srcDir: '/',
-    files: ['**/*.js', '**/*.json'],
+  var trees = new Funnel(fixturesPath, {
+    includes: [ /js$/, /json$/ ],
     destDir: '/'
   });
 

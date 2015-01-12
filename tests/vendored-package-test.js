@@ -38,7 +38,7 @@ describe('vendored-package', function() {
       .then(function(results) {
         var outputPath = results.directory;
 
-        expect(walkSync(outputPath)).to.deep.equal(['loader/', 'loader.js']);
+        expect(walkSync(outputPath)).to.deep.equal(['loader.js']);
       });
   });
 });
