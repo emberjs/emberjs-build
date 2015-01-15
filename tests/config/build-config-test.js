@@ -14,7 +14,8 @@ describe('build config', function() {
       disableMin:          false,
       enableDocs:          false,
       disableDefeatureify: true,
-      disableDerequire:    false
+      disableDerequire:    false,
+      enableTreeDebugging: false
     });
   });
 
