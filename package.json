@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/emberjs/emberjs-build",
   "devDependencies": {
-    "broccoli-stew": "^0.1.6",
     "chai": "^1.10.0",
     "chai-fs": "^0.1.0",
     "mocha": "^2.0.1",
@@ -48,6 +47,7 @@
     "broccoli-merge-trees": "0.1.3",
     "broccoli-replace": "~0.1.6",
     "broccoli-static-compiler": "0.1.4",
+    "broccoli-stew": "^0.1.6",
     "broccoli-uglify-js": "~0.1.3",
     "broccoli-use-strict-remover": "^1.0.0",
     "broccoli-writer": "~0.1.1",
