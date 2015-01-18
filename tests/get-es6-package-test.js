@@ -125,40 +125,6 @@ describe('get-es6-package', function() {
       });
   });
 
-  it('correctly creates a compiled tree', function() {
-    var packages = {
-      'ember-metal': { }
-    };
-
-    fixtureLibPath        = path.join(__dirname, 'fixtures/packages/ember-metal/lib');
-    fixtureTestPath       = path.join(__dirname, 'fixtures/packages/ember-metal/tests');
-    fixtureLoaderPath     = path.join(__dirname, 'fixtures/loader');
-    fixtureGeneratorsPath = path.join(__dirname, 'fixtures/generators');
-
-    var loaderTree = new Funnel(fixtureLoaderPath, {
-      files: ['loader.js'],
-      destDir: '/'
-    });
-
-    var fullTree = getES6Package(packages, 'ember-metal', {
-      libPath:    fixtureLibPath,
-      testPath:   fixtureTestPath,
-      loader:     loaderTree,
-      generators: fixtureGeneratorsPath
-    });
-
-    builder = new broccoli.Builder(fullTree.compiledTree);
-
-    expectedPath = path.join(__dirname, 'expected/packages/ember-metal-compiled-tree/');
-
-    return builder.build()
-      .then(function(results) {
-        var outputPath = results.directory;
-
-        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
-      });
-  });
-
   it('correctly creates a vendor tree', function() {
     var packages = {
       'ember-template-compiler': {
@@ -201,41 +167,6 @@ describe('get-es6-package', function() {
         var outputPath = results.directory;
 
         expect(walkSync(outputPath)).to.deep.equal([
-          'htmlbars-compiler/',
-          'htmlbars-compiler/compiler.js',
-          'htmlbars-compiler/fragment-javascript-compiler.js',
-          'htmlbars-compiler/fragment-opcode-compiler.js',
-          'htmlbars-compiler/hydration-javascript-compiler.js',
-          'htmlbars-compiler/hydration-opcode-compiler.js',
-          'htmlbars-compiler/template-compiler.js',
-          'htmlbars-compiler/template-visitor.js',
-          'htmlbars-compiler/utils.js',
-          'htmlbars-compiler.js',
-          'htmlbars-runtime/',
-          'htmlbars-runtime/helpers.js',
-          'htmlbars-runtime/hooks.js',
-          'htmlbars-runtime.js',
-          'htmlbars-syntax/',
-          'htmlbars-syntax/builders.js',
-          'htmlbars-syntax/handlebars/',
-          'htmlbars-syntax/handlebars/compiler/',
-          'htmlbars-syntax/handlebars/compiler/ast.js',
-          'htmlbars-syntax/handlebars/compiler/base.js',
-          'htmlbars-syntax/handlebars/compiler/helpers.js',
-          'htmlbars-syntax/handlebars/compiler/parser.js',
-          'htmlbars-syntax/handlebars/compiler/visitor.js',
-          'htmlbars-syntax/handlebars/compiler/whitespace-control.js',
-          'htmlbars-syntax/handlebars/exception.js',
-          'htmlbars-syntax/handlebars/safe-string.js',
-          'htmlbars-syntax/handlebars/utils.js',
-          'htmlbars-syntax/node-handlers.js',
-          'htmlbars-syntax/parser.js',
-          'htmlbars-syntax/token-handlers.js',
-          'htmlbars-syntax/tokenizer.js',
-          'htmlbars-syntax/utils.js',
-          'htmlbars-syntax/walker.js',
-          'htmlbars-syntax.js',
-          'htmlbars-test-helpers.js',
           'htmlbars-util/',
           'htmlbars-util/array-utils.js',
           'htmlbars-util/handlebars/',
@@ -244,32 +175,7 @@ describe('get-es6-package', function() {
           'htmlbars-util/object-utils.js',
           'htmlbars-util/quoting.js',
           'htmlbars-util/safe-string.js',
-          'htmlbars-util.js',
-          'htmlbars.js',
-          'morph/',
-          'morph/attr-morph/',
-          'morph/attr-morph/sanitize-attribute-value.js',
-          'morph/attr-morph.js',
-          'morph/dom-helper/',
-          'morph/dom-helper/build-html-dom.js',
-          'morph/dom-helper/classes.js',
-          'morph/dom-helper/prop.js',
-          'morph/dom-helper.js',
-          'morph/morph.js',
-          'morph.js',
-          'simple-html-tokenizer/',
-          'simple-html-tokenizer/char-refs/',
-          'simple-html-tokenizer/char-refs/full.js',
-          'simple-html-tokenizer/char-refs/min.js',
-          'simple-html-tokenizer/entity-parser.js',
-          'simple-html-tokenizer/generate.js',
-          'simple-html-tokenizer/generator.js',
-          'simple-html-tokenizer/tokenize.js',
-          'simple-html-tokenizer/tokenizer.js',
-          'simple-html-tokenizer/tokens.js',
-          'simple-html-tokenizer/utils.js',
-          'simple-html-tokenizer.js',
-          'simple-html-tokenizer.umd.js'
+          'htmlbars-util.js'
         ]);
       });
   });
