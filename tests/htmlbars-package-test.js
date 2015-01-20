@@ -1,9 +1,11 @@
 'use strict';
 
+var path     = require('path');
 var expect   = require('chai').expect;
 var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
 
+var readContent = require('./helpers/file');
 var htmlbarsPackage = require('../lib/htmlbars-package');
 var testLibPath     = 'tests/fixtures/htmlbars/dist/es6/';
 
@@ -32,7 +34,6 @@ describe('htmlbars-package', function() {
   */
   it('correctly creates a htmlbars tree', function() {
     var expected = [
-      'htmlbars-test-helpers.js',
       'htmlbars-util/',
       'htmlbars-util/safe-string.js',
       'htmlbars-util.js'
@@ -72,6 +73,11 @@ describe('htmlbars-package', function() {
         var outputPath = results.directory;
 
         expect(walkSync(outputPath)).to.deep.equal(['htmlbars-test-helpers.js']);
+
+        var actualContents = readContent(path.join(outputPath, 'htmlbars-test-helpers.js'));
+        var expectedContents = readContent('tests/expected/htmlbars/htmlbars-test-helpers.js');
+
+        expect(actualContents).to.be.equal(expectedContents);
       });
   });
 });

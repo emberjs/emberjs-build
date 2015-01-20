@@ -52,9 +52,7 @@ describe('ember-build', function() {
       var actual = emberBuild._enumeratePackages();
 
       expect(actual.testTree).to.be.ok();
-      expect(actual.vendorTrees).to.be.ok();
       expect(actual.devSourceTrees).to.be.ok();
-      expect(actual.compiledPackageTrees).to.be.ok();
       expect(actual.testingSourceTrees).to.be.ok();
       expect(actual.prodSourceTrees).to.be.ok();
     });
