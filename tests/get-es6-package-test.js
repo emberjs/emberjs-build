@@ -172,6 +172,7 @@ describe('get-es6-package', function() {
           'htmlbars-util/handlebars/',
           'htmlbars-util/handlebars/safe-string.js',
           'htmlbars-util/handlebars/utils.js',
+          'htmlbars-util/namespaces.js',
           'htmlbars-util/object-utils.js',
           'htmlbars-util/quoting.js',
           'htmlbars-util/safe-string.js',
