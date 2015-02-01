@@ -55,7 +55,7 @@ describe('concatenate-es6-modules', function() {
         var fileContent = readContent(filePath);
 
         expect(filePath).to.be.a.path('file exists');
-        expect(fileContent).to.equal(expectedContent);
+        expect(fileContent.replace(/\s+/g, ' ')).to.equal(expectedContent.replace(/\s+/g, ' '));
       });
   });
 });
