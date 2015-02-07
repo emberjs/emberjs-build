@@ -54,6 +54,7 @@
     "esperanto": "^0.6.7",
     "git-repo-version": "0.1.0",
     "htmlbars": "^0.10.0",
+    "js-string-escape": "^1.0.0",
     "lodash-node": "^2.4.1"
   }
 }
