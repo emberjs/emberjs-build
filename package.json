@@ -1,6 +1,6 @@
 {
   "name": "emberjs-build",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Build pipeline for Ember.js",
   "main": "index.js",
   "scripts": {
@@ -52,7 +52,7 @@
     "ember-cli-yuidoc": "0.3.1",
     "es6-module-transpiler": "~0.4.0",
     "esperanto": "^0.6.7",
-    "git-repo-version": "0.1.0",
+    "git-repo-version": "0.1.2",
     "htmlbars": "^0.10.0",
     "js-string-escape": "^1.0.0",
     "lodash-node": "^2.4.1"
