@@ -12,24 +12,6 @@ describe('ember-build', function() {
     expect(typeof EmberBuild === 'function').to.be.true();
   });
 
-  it('initializes properties properly', function() {
-    var emberBuild = new EmberBuild();
-
-    expect(emberBuild._packages).to.be.null();
-    expect(emberBuild._trees).to.deep.equal({
-      buildTree:             null,
-      distTrees:             null,
-      prodTrees:             null,
-      compiledTests:         null,
-      compiledSource:        null,
-      prodCompiledTests:     null,
-      minCompiledSource:     null,
-      prodCompiledSource:    null,
-      deprecatedDebugFile:   null,
-      testingCompiledSource: null
-    });
-  });
-
   ensureMethodReturnsTree('_generateCompiledSourceTree');
   ensureMethodReturnsTree('_generateProdCompiledSourceTree');
   ensureMethodReturnsTree('_generateCompiledTestsTree');
