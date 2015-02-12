@@ -154,6 +154,7 @@ describe('get-es6-package', function() {
     });
 
     var fullTree = getES6Package(packages, 'ember-htmlbars', {
+      htmlbars: { compileSpec: function() { } },
       libPath:    fixtureLibPath,
       testPath:   fixtureTestPath,
       loader:     loaderTree,
