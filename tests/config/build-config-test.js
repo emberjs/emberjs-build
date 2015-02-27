@@ -15,7 +15,8 @@ describe('build config', function() {
       enableDocs:          false,
       disableDefeatureify: true,
       disableDerequire:    false,
-      enableTreeDebugging: false
+      enableTreeDebugging: false,
+      disableSourceMaps:   false,
     });
   });
 
