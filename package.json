@@ -34,7 +34,7 @@
     "babel-core": "^4.0.0",
     "broccoli": "0.13.3",
     "broccoli-defeatureify": "~1.0.0",
-    "broccoli-derequire": "0.0.1",
+    "broccoli-derequire": "0.1.0",
     "broccoli-es3-safe-recast": "1.0.0",
     "broccoli-es6-module-transpiler": "~0.1.0",
     "broccoli-file-creator": "~0.1.0",
