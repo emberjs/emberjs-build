@@ -1,6 +1,6 @@
 {
   "name": "emberjs-build",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "Build pipeline for Ember.js",
   "main": "index.js",
   "scripts": {
