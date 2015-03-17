@@ -79,6 +79,7 @@ describe('ember-build', function() {
         packages: {
           'container': {},
           'ember-metal': {},
+          'ember-debug': {},
           'ember-template-compiler': {}
         }
       });
