@@ -5,6 +5,7 @@ var path     = require('path');
 var expect   = chai.expect;
 var Funnel   = require('broccoli-funnel');
 var broccoli = require('broccoli');
+var walkSync = require('walk-sync');
 
 chai.use(require('chai-fs'));
 
@@ -35,8 +36,10 @@ describe('concatenate-es6-modules', function() {
   });
 
   it('correctly concats test tree into one file properly', function() {
-    var expectedFilePath = path.join(__dirname, './expected/packages/ember-tests.js');
-    var expectedContent  = readContent(expectedFilePath);
+    var inputFiles = walkSync(fixturesTestPath)
+      .filter(function(relativePath) {
+        return relativePath.match(/js$/);
+      });
 
     var compiledTests = concatenateES6Modules(testTree, {
       es3Safe:   false,
@@ -55,7 +58,9 @@ describe('concatenate-es6-modules', function() {
         var fileContent = readContent(filePath);
 
         expect(filePath).to.be.a.path('file exists');
-        expect(fileContent.replace(/\s+/g, ' ')).to.equal(expectedContent.replace(/\s+/g, ' '));
+        inputFiles.forEach(function(relativePath) {
+          expect(fileContent).to.contain(relativePath.slice(0, -3));
+        });
       });
   });
 });
