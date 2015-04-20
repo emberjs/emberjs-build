@@ -79,6 +79,7 @@ describe('ember-build', function() {
         packages: {
           'container': {},
           'ember-metal': {},
+          'ember-runtime': { vendorRequirements: [], requirements: []},
           'ember-debug': {},
           'ember-template-compiler': {}
         }
@@ -106,7 +107,7 @@ describe('ember-build', function() {
 
       emberBuild.getDistTrees();
 
-      expect(count).to.equal(12);
+      expect(count).to.equal(13);
     });
   });
 });
