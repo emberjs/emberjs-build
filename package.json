@@ -34,7 +34,7 @@
   "dependencies": {
     "babel-core": "^5.0.0",
     "broccoli": "0.13.3",
-    "broccoli-defeatureify": "~1.0.0",
+    "broccoli-defeatureify": "twokul/broccoli-defeatureify#broccoli-perstitent-filter",
     "broccoli-derequire": "0.1.0",
     "broccoli-es3-safe-recast": "1.0.0",
     "broccoli-es6-module-transpiler": "~0.1.0",
