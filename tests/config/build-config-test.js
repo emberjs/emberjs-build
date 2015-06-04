@@ -10,7 +10,6 @@ describe('build config', function() {
       isDevelopment:       true,
       disableJSHint:       false,
       disableJSCS:         false,
-      disableES3:          false,
       disableMin:          false,
       enableDocs:          false,
       disableDefeatureify: true,
