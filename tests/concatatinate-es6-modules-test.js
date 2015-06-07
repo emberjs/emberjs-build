@@ -38,7 +38,7 @@ describe('concatenate-es6-modules', function() {
   it('correctly concats test tree into one file properly', function() {
     var inputFiles = walkSync(fixturesTestPath)
       .filter(function(relativePath) {
-        return relativePath.match(/js$/);
+        return relativePath.match(/\.js$/);
       });
 
     var compiledTests = concatenateES6Modules(testTree, {
