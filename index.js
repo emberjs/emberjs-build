@@ -1,5 +1,3 @@
 'use strict';
 
-var EmberBuild = require('./lib/ember-build');
-
-module.exports = EmberBuild;
+module.exports = require('./lib/ember-build');
