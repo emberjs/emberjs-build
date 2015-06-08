@@ -17,10 +17,7 @@ describe('defeatureify-config', function() {
     var config = defeatureifyConfig();
 
     expect(config).to.deep.equal({
-      enabled: {
-        'foo-bar': null,
-        'baz': true
-      },
+      enabled: {},
       debugStatements: debugStatements,
       namespace: undefined,
       enableStripDebug: false
@@ -34,10 +31,7 @@ describe('defeatureify-config', function() {
     });
 
     expect(config).to.deep.equal({
-      enabled: {
-        'foo-bar': null,
-        'baz': true
-      },
+      enabled: {},
       debugStatements: debugStatements,
       namespace: undefined,
       enableStripDebug: true
