@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "broccoli": "0.16.3",
-    "broccoli-babel-transpiler": "^5.1.1",
+    "broccoli-babel-transpiler": "babel/broccoli-babel-transpiler#persistent",
     "broccoli-defeatureify": "~1.0.0",
     "broccoli-derequire": "0.1.0",
     "broccoli-es3-safe-recast": "1.0.0",
