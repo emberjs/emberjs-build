@@ -12,7 +12,6 @@ describe('build config', function() {
       disableJSCS:         false,
       disableMin:          false,
       enableDocs:          false,
-      disableDefeatureify: true,
       disableDerequire:    false,
       enableTreeDebugging: false,
       disableSourceMaps:   false,
