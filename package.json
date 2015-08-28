@@ -48,7 +48,6 @@
     "broccoli-stew": "^0.3.5",
     "broccoli-string-replace": "0.1.0",
     "broccoli-uglify-sourcemap": "^1.0.1",
-    "broccoli-use-strict-remover": "^1.0.0",
     "core-object": "0.0.4",
     "ember-cli-yuidoc": "0.3.1",
     "git-repo-version": "0.3.0",

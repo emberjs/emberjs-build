@@ -35,4 +35,31 @@ describe('transpileES6', function() {
         expect(fileContent).not.to.contain('=>');
       });
   });
+
+  it('does not add `use strict` if `no use strict` directive is present', function() {
+    var strictDirectiveFixture = path.join(transpileFixtures, 'conditional-use-strict');
+
+    var tree = transpileES6(strictDirectiveFixture);
+
+    builder = new broccoli.Builder(tree);
+
+    return builder.build()
+      .then(function(results) {
+        expect(
+          readContent(results.directory + '/without-directive.js')
+        ).to.match(/['"]use strict['"];/);
+
+        expect(
+          readContent(results.directory + '/with-no-use-strict-directive.js')
+        ).not.to.match(/['"]use strict['"];/);
+
+        expect(
+          readContent(results.directory + '/with-no-use-strict-directive.js')
+        ).to.match(/['"]no use strict['"];/);
+
+        expect(
+          readContent(results.directory + '/with-use-strict-directive.js')
+        ).to.match(/['"]use strict['"];/);
+      });
+  });
 });
