@@ -43,7 +43,6 @@ describe('concatenate-es6-modules', function() {
 
     var compiledTests = concatenateES6Modules(testTree, {
       es3Safe:   false,
-      derequire: false,
       includeLoader: true,
       destFile: '/ember-tests.js',
       generators: generatorsPath,
