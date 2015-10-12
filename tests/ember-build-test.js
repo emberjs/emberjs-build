@@ -59,23 +59,28 @@ describe('ember-build', function() {
   describe('getDistTrees', function() {
     var count = 0;
     var emberBuild;
-    var originalPrototype = EmberBuild.prototype;
+    var EmberBuildStubbedSubclass;
 
-    function countFunction() {
-      count++;
+    function countCalls(target, name) {
+      target[name] = function() {
+        count++;
+        return EmberBuild.prototype[name].apply(this, arguments);
+      };
     }
 
     before(function() {
       count = 0;
 
-      EmberBuild.prototype._getBowerTree                      = countFunction;
-      EmberBuild.prototype._getTestConfigTree                 = countFunction;
-      EmberBuild.prototype._buildCJSTree                      = countFunction;
-      EmberBuild.prototype._generateCompiledSourceTree        = countFunction;
-      EmberBuild.prototype._generateCompiledTestsTree         = countFunction;
-      EmberBuild.prototype._generateTestingCompiledSourceTree = countFunction;
+      EmberBuildStubbedSubclass = EmberBuild.extend();
 
-      emberBuild = new EmberBuild({
+      countCalls(EmberBuildStubbedSubclass.prototype, '_getBowerTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_getTestConfigTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_buildCJSTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateCompiledSourceTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateCompiledTestsTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateTestingCompiledSourceTree');
+
+      emberBuild = new EmberBuildStubbedSubclass({
         packages: {
           'container': {},
           'ember-metal': {},
@@ -87,7 +92,6 @@ describe('ember-build', function() {
     });
 
     after(function() {
-      EmberBuild.prototype = originalPrototype;
       emberBuild = null;
     });
 
@@ -98,12 +102,12 @@ describe('ember-build', function() {
     });
 
     it('production tree is build up properly', function() {
-      EmberBuild.prototype._getS3TestRunner                    = countFunction;
-      EmberBuild.prototype._buildRuntimeTree                   = countFunction;
-      EmberBuild.prototype._generateProdCompiledTestsTree      = countFunction;
-      EmberBuild.prototype._generateProdCompiledSourceTree     = countFunction;
-      EmberBuild.prototype._generateDeprecatedDebugFileTree    = countFunction;
-      EmberBuild.prototype._generateMinifiedCompiledSourceTree = countFunction;
+      countCalls(EmberBuildStubbedSubclass.prototype, '_getS3TestRunner');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_buildRuntimeTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateProdCompiledTestsTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateProdCompiledSourceTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateDeprecatedDebugFileTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateMinifiedCompiledSourceTree');
 
       emberBuild.getDistTrees();
 
