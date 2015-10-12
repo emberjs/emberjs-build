@@ -129,7 +129,13 @@ describe('get-es6-package', function() {
     var packages = {
       'ember-template-compiler': {
         trees: null,
-        vendorRequirements: ['simple-html-tokenizer', 'htmlbars-util', 'htmlbars-compiler', 'htmlbars-syntax', 'htmlbars-test-helpers']
+        vendorRequirements: [
+          'simple-html-tokenizer',
+          'htmlbars-util',
+          'htmlbars-compiler',
+          'htmlbars-syntax',
+          'htmlbars-test-helpers'
+        ]
       },
       'ember-metal-views': {
         trees: null,
