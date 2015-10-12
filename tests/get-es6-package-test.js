@@ -5,6 +5,7 @@ var expect   = require('chai').expect;
 var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
 var Funnel   = require('broccoli-funnel');
+var htmlbarsPackage = require('../lib/htmlbars-package');
 
 var getES6Package = require('../lib/get-es6-package');
 
@@ -177,7 +178,7 @@ describe('get-es6-package', function() {
       generators: fixtureGeneratorsPath,
       vendoredPackages: {
         'morph': mockTree(),
-        'htmlbars-util': mockTree(),
+        'htmlbars-util': htmlbarsPackage('htmlbars-util'),
         'simple-html-tokenizer': mockTree(),
         'htmlbars-compiler': mockTree(),
         'htmlbars-syntax': mockTree(),
