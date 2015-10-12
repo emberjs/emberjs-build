@@ -10,6 +10,16 @@ var getES6Package = require('../lib/get-es6-package');
 
 var fixtureLibPath, fixtureTestPath, fixtureLoaderPath, fixtureGeneratorsPath, expectedPath, configPath;
 
+function mockTree(name) {
+  // good enough for our use-case, we can always make it more u
+  return {
+    inputTrees: [],
+    annotation: name,
+    rebuild: function() { },
+    cleanup: function() { }
+  };
+}
+
 describe('get-es6-package', function() {
   var builder;
 
@@ -164,7 +174,15 @@ describe('get-es6-package', function() {
       libPath:    fixtureLibPath,
       testPath:   fixtureTestPath,
       loader:     loaderTree,
-      generators: fixtureGeneratorsPath
+      generators: fixtureGeneratorsPath,
+      vendoredPackages: {
+        'morph': mockTree(),
+        'htmlbars-util': mockTree(),
+        'simple-html-tokenizer': mockTree(),
+        'htmlbars-compiler': mockTree(),
+        'htmlbars-syntax': mockTree(),
+        'htmlbars-test-helpers': mockTree(),
+      }
     });
 
     builder = new broccoli.Builder(fullTree.vendorTrees);
