@@ -20,6 +20,22 @@ describe('transpileES6', function() {
     }
   });
 
+  it('correctly handles let', function () {
+    var letFixture = path.join(transpileFixtures, 'let-statement');
+
+    var tree = transpileES6(letFixture);
+
+    builder = new broccoli.Builder(tree);
+
+    return builder.build()
+      .then(function(results) {
+        var filePath = results.directory + '/application-instance.js';
+        var fileContent = readContent(filePath);
+
+        expect(fileContent).not.to.match(/register\([^\)]+nvironment\.default/);
+      });
+  });
+
   it('correctly replaces arrowFunctions', function() {
     var arrowFunctionFixture = path.join(transpileFixtures, 'arrow-functions');
 
