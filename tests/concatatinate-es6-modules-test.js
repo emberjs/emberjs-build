@@ -25,7 +25,7 @@ describe('concatenate-es6-modules', function() {
   });
 
   var loaderTree = new Funnel(fixturesLoaderPath, {
-    files: ['loader.js'],
+    files: ['loader/index.js'],
     destDir: '/'
   });
 
