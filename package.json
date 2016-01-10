@@ -44,7 +44,7 @@
     "broccoli-merge-trees": "^1.1.1",
     "broccoli-persistent-filter": "^1.0.8",
     "broccoli-stew": "^0.3.5",
-    "broccoli-string-replace": "0.1.0",
+    "broccoli-string-replace": "0.1.1",
     "broccoli-uglify-sourcemap": "^1.0.1",
     "core-object": "0.0.4",
     "ember-cli-yuidoc": "0.3.1",
