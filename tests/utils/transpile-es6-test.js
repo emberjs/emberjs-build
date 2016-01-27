@@ -36,6 +36,31 @@ describe('transpileES6', function() {
       });
   });
 
+  it('correctly transpile classes', function() {
+    var classesFixture = path.join(transpileFixtures, 'classes');
+
+    var tree = transpileES6(classesFixture);
+
+    builder = new broccoli.Builder(tree);
+
+    return builder.build()
+      .then(function(results) {
+        var filePath = results.directory + '/some-file.js';
+        var fileContent = readContent(filePath);
+
+        expect(fileContent).not.to.contain('class A');
+
+        // Ensure Babel has inserted its class helpers
+        // TODO: flip this assertion when switching to global helpers
+        expect(fileContent).to.contain('_inherits');
+        expect(fileContent).to.contain('_classCallCheck');
+
+        // IE <= 10 does not support __proto__, so we cannot use it for statics
+        expect(fileContent).not.to.contain('__proto__');
+        expect(fileContent).to.contain('_defaults');
+      });
+  });
+
   it('does not add `use strict` if `no use strict` directive is present', function() {
     var strictDirectiveFixture = path.join(transpileFixtures, 'conditional-use-strict');
 
