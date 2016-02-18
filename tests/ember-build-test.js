@@ -91,6 +91,10 @@ describe('ember-build', function() {
           'ember-htmlbars-template-compiler': {}
         }
       });
+
+      emberBuild._vendoredPackages = {
+        loader: {}
+      };
     });
 
     after(function() {

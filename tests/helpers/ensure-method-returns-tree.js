@@ -13,10 +13,14 @@ module.exports = function ensureMethodReturnsTree(methodName) {
 
     before(function() {
       emberBuild._trees.prodCompiledSource = {};
+      emberBuild._vendoredPackages = {
+        loader: {}
+      };
     });
 
     after(function() {
       emberBuild._trees.prodCompiledSource = null;
+      emberBuild._vendoredPackages = null;
     });
 
     it('should return a tree to prevent build failures', function() {
