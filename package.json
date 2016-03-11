@@ -50,6 +50,7 @@
     "ember-cli-yuidoc": "0.3.1",
     "git-repo-version": "0.3.0",
     "js-string-escape": "^1.0.0",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "glimmer-engine-precompiler": "0.5.0"
   }
 }
