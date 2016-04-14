@@ -84,6 +84,7 @@ describe('ember-build', function() {
         packages: {
           'container': {},
           'ember-metal': {},
+          'ember-environment': { skipTests: true },
           'ember-runtime': { vendorRequirements: [], requirements: []},
           'ember-debug': {},
           'ember-template-compiler': {}
