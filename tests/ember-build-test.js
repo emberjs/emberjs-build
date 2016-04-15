@@ -75,7 +75,6 @@ describe('ember-build', function() {
 
       countCalls(EmberBuildStubbedSubclass.prototype, '_getBowerTree');
       countCalls(EmberBuildStubbedSubclass.prototype, '_getTestConfigTree');
-      countCalls(EmberBuildStubbedSubclass.prototype, '_buildCJSTree');
       countCalls(EmberBuildStubbedSubclass.prototype, '_generateCompiledSourceTree');
       countCalls(EmberBuildStubbedSubclass.prototype, '_generateCompiledTestsTree');
       countCalls(EmberBuildStubbedSubclass.prototype, '_generateTestingCompiledSourceTree');
