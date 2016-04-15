@@ -98,7 +98,7 @@ describe('ember-build', function() {
     it('development tree is built up properly', function() {
       emberBuild.getDistTrees();
 
-      expect(count).to.equal(6);
+      expect(count).to.equal(5);
     });
 
     it('production tree is build up properly', function() {
@@ -111,7 +111,7 @@ describe('ember-build', function() {
 
       emberBuild.getDistTrees();
 
-      expect(count).to.equal(13);
+      expect(count).to.equal(11);
     });
   });
 });
