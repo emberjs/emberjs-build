@@ -44,14 +44,15 @@
     "broccoli-kitchen-sink-helpers": "^0.2.6",
     "broccoli-merge-trees": "^1.1.1",
     "broccoli-persistent-filter": "^1.0.8",
+    "broccoli-source": "^1.1.0",
     "broccoli-stew": "^1.1.1",
     "broccoli-string-replace": "0.1.1",
     "broccoli-uglify-sourcemap": "^1.0.1",
     "core-object": "0.0.4",
     "ember-cli-yuidoc": "0.3.1",
     "git-repo-version": "0.3.0",
+    "glimmer-engine-precompiler": "0.5.0",
     "js-string-escape": "^1.0.0",
-    "lodash": "^3.10.1",
-    "glimmer-engine-precompiler": "0.5.0"
+    "lodash": "^3.10.1"
   }
 }
