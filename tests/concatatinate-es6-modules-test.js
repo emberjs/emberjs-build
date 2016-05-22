@@ -11,7 +11,6 @@ var file     = chaiFiles.file;
 
 chai.use(chaiFiles);
 
-var readContent           = require('./helpers/file');
 var concatenateES6Modules = require('../lib/concatenate-es6-modules');
 
 var generatorsPath     = path.join(__dirname, './fixtures/generators');
@@ -55,12 +54,11 @@ describe('concatenate-es6-modules', function() {
 
     return builder.build()
       .then(function(results) {
-        var filePath = results.directory + '/ember-tests.js';
-        var fileContent = readContent(filePath);
+        var f = file(results.directory + '/ember-tests.js');
 
-        expect(file(filePath)).to.exist;
+        expect(f).to.exist;
         inputFiles.forEach(function(relativePath) {
-          expect(fileContent).to.contain(relativePath.slice(0, -3));
+          expect(f).to.contain(relativePath.slice(0, -3));
         });
       });
   });

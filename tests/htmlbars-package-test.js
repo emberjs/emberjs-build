@@ -1,11 +1,15 @@
 'use strict';
 
 var path     = require('path');
-var expect   = require('chai').expect;
+var chai     = require('chai');
+var expect   = chai.expect;
 var walkSync = require('walk-sync');
 var broccoli = require('broccoli');
+var chaiFiles = require('chai-files');
+var file      = chaiFiles.file;
 
-var readContent = require('./helpers/file');
+chai.use(chaiFiles);
+
 var htmlbarsPackage = require('../lib/htmlbars-package');
 var testLibPath     = 'tests/fixtures/htmlbars/dist/es6/';
 
@@ -74,9 +78,9 @@ describe('htmlbars-package', function() {
 
         expect(walkSync(outputPath)).to.deep.equal(['htmlbars-test-helpers.js']);
 
-        var actualContents = readContent(path.join(outputPath, 'htmlbars-test-helpers.js'));
+        var filePath = path.join(outputPath, 'htmlbars-test-helpers.js');
 
-        expect(actualContents).to.include('function bar()');
+        expect(file(filePath)).to.include('function bar()');
       });
   });
 });
