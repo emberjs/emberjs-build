@@ -26,7 +26,7 @@
   "homepage": "https://github.com/emberjs/emberjs-build",
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-fs": "^0.1.0",
+    "chai-files": "^1.2.0",
     "htmlbars": "^0.11.1",
     "mocha": "^2.0.1",
     "mocha-jshint": "0.0.9",

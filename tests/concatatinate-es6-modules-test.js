@@ -6,8 +6,10 @@ var expect   = chai.expect;
 var Funnel   = require('broccoli-funnel');
 var broccoli = require('broccoli');
 var walkSync = require('walk-sync');
+var chaiFiles = require('chai-files');
+var file     = chaiFiles.file;
 
-chai.use(require('chai-fs'));
+chai.use(chaiFiles);
 
 var readContent           = require('./helpers/file');
 var concatenateES6Modules = require('../lib/concatenate-es6-modules');
@@ -56,7 +58,7 @@ describe('concatenate-es6-modules', function() {
         var filePath = results.directory + '/ember-tests.js';
         var fileContent = readContent(filePath);
 
-        expect(filePath).to.be.a.path('file exists');
+        expect(file(filePath)).to.exist;
         inputFiles.forEach(function(relativePath) {
           expect(fileContent).to.contain(relativePath.slice(0, -3));
         });
