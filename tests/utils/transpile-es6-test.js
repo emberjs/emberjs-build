@@ -5,8 +5,6 @@ var path = require('path');
 var expect = chai.expect;
 var broccoli = require('broccoli');
 
-chai.use(require('chai-fs'));
-
 var readContent = require('../helpers/file');
 var transpileES6 = require('../../lib/utils/transpile-es6');
 var transpileFixtures = path.join(__dirname, '..', 'fixtures', 'transpile-es6');
