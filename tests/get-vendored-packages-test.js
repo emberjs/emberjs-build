@@ -26,7 +26,7 @@ describe('get-vendored-packages', function() {
     var actualPackages = getVendoredPackages();
 
     vendoredPackages.forEach(function(packageName) {
-      expect(actualPackages.hasOwnProperty(packageName)).to.be.true();
+      expect(actualPackages.hasOwnProperty(packageName)).to.be.true;
     });
   });
 });

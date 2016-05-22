@@ -20,8 +20,8 @@ module.exports = function ensureMethodReturnsTree(methodName) {
     it('should return a tree to prevent build failures', function() {
       var actual = emberBuild[methodName]();
 
-      expect(actual).to.be.ok();
-      expect(actual.read).to.be.ok();
+      expect(actual).to.be.ok;
+      expect(actual.read).to.be.ok;
     });
   });
 };
