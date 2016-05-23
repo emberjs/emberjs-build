@@ -4,10 +4,11 @@ var chai = require('chai');
 var path = require('path');
 var expect = chai.expect;
 var broccoli = require('broccoli');
+var chaiFiles = require('chai-files');
+var file = chaiFiles.file;
 
-chai.use(require('chai-fs'));
+chai.use(chaiFiles);
 
-var readContent = require('../helpers/file');
 var transpileES6 = require('../../lib/utils/transpile-es6');
 var transpileFixtures = path.join(__dirname, '..', 'fixtures', 'transpile-es6');
 
@@ -30,9 +31,7 @@ describe('transpileES6', function() {
     return builder.build()
       .then(function(results) {
         var filePath = results.directory + '/some-file.js';
-        var fileContent = readContent(filePath);
-
-        expect(fileContent).not.to.contain('=>');
+        expect(file(filePath)).not.to.contain('=>');
       });
   });
 
@@ -46,18 +45,18 @@ describe('transpileES6', function() {
     return builder.build()
       .then(function(results) {
         var filePath = results.directory + '/some-file.js';
-        var fileContent = readContent(filePath);
+        var f = file(filePath);
 
-        expect(fileContent).not.to.contain('class A');
+        expect(f).not.to.contain('class A');
 
         // Ensure Babel has inserted its class helpers
         // TODO: flip this assertion when switching to global helpers
-        expect(fileContent).to.contain('_inherits');
-        expect(fileContent).to.contain('_classCallCheck');
+        expect(f).to.contain('_inherits');
+        expect(f).to.contain('_classCallCheck');
 
         // IE <= 10 does not support __proto__, so we cannot use it for statics
-        expect(fileContent).not.to.contain('__proto__');
-        expect(fileContent).to.contain('_defaults');
+        expect(f).not.to.contain('__proto__');
+        expect(f).to.contain('_defaults');
       });
   });
 
@@ -70,21 +69,17 @@ describe('transpileES6', function() {
 
     return builder.build()
       .then(function(results) {
-        expect(
-          readContent(results.directory + '/without-directive.js')
-        ).to.match(/['"]use strict['"];/);
+        expect(file(results.directory + '/without-directive.js'))
+          .to.match(/['"]use strict['"];/);
 
-        expect(
-          readContent(results.directory + '/with-no-use-strict-directive.js')
-        ).not.to.match(/['"]use strict['"];/);
+        expect(file(results.directory + '/with-no-use-strict-directive.js'))
+          .not.to.match(/['"]use strict['"];/);
 
-        expect(
-          readContent(results.directory + '/with-no-use-strict-directive.js')
-        ).to.match(/['"]no use strict['"];/);
+        expect(file(results.directory + '/with-no-use-strict-directive.js'))
+          .to.match(/['"]no use strict['"];/);
 
-        expect(
-          readContent(results.directory + '/with-use-strict-directive.js')
-        ).to.match(/['"]use strict['"];/);
+        expect(file(results.directory + '/with-use-strict-directive.js'))
+          .to.match(/['"]use strict['"];/);
       });
   });
 });

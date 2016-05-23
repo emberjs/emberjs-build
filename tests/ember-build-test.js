@@ -8,8 +8,8 @@ var ensureMethodReturnsTree = require('./helpers/ensure-method-returns-tree');
 
 describe('ember-build', function() {
   it('exists and is a function', function() {
-    expect(EmberBuild).to.be.ok();
-    expect(typeof EmberBuild === 'function').to.be.true();
+    expect(EmberBuild).to.be.ok;
+    expect(typeof EmberBuild === 'function').to.be.true;
   });
 
   ensureMethodReturnsTree('_generateCompiledSourceTree');
@@ -33,10 +33,10 @@ describe('ember-build', function() {
 
       var actual = emberBuild._enumeratePackages();
 
-      expect(actual.testTree).to.be.ok();
-      expect(actual.devSourceTrees).to.be.ok();
-      expect(actual.testingSourceTrees).to.be.ok();
-      expect(actual.prodSourceTrees).to.be.ok();
+      expect(actual.testTree).to.be.ok;
+      expect(actual.devSourceTrees).to.be.ok;
+      expect(actual.testingSourceTrees).to.be.ok;
+      expect(actual.prodSourceTrees).to.be.ok;
     });
 
     it('memoizes the build tree', function() {
