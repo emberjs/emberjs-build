@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  extends: 'eslint:recommended',
   env: {
     'node': true,
   },
@@ -60,5 +61,7 @@ module.exports = {
 
     // "eqnull": true
     'no-eq-null': 2,
+
+    'comma-dangle': 0,
   },
 };
