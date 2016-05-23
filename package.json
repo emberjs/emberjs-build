@@ -29,6 +29,7 @@
     "chai-files": "^1.2.0",
     "htmlbars": "^0.11.1",
     "mocha": "^2.0.1",
+    "mocha-eslint": "^2.0.2",
     "mocha-jshint": "0.0.9",
     "walk-sync": "^0.2.6"
   },
