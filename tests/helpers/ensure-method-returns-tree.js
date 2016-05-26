@@ -7,6 +7,8 @@ var EmberBuild = require('../../lib/ember-build');
 
 module.exports = function ensureMethodReturnsTree(methodName) {
   describe(methodName, function() {
+    this.timeout(5000);
+
     var emberBuild = new EmberBuild();
 
     before(function() {
