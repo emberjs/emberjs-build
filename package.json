@@ -42,6 +42,7 @@
     "broccoli-jscs": "^1.4.1",
     "broccoli-jshint": "^1.1.0",
     "broccoli-kitchen-sink-helpers": "^0.2.6",
+    "broccoli-lint-eslint": "^2.3.0",
     "broccoli-merge-trees": "^1.1.1",
     "broccoli-persistent-filter": "^1.0.8",
     "broccoli-source": "^1.1.0",
