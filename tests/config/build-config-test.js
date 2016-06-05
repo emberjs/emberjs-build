@@ -8,6 +8,7 @@ describe('build config', function() {
   it('returns correct default configuration object', function() {
     expect(buildConfig).to.deep.equal({
       isDevelopment:       true,
+      disableESLint:       false,
       disableJSHint:       false,
       disableJSCS:         false,
       disableMin:          false,
