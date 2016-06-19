@@ -3,5 +3,5 @@
 var lint = require('mocha-eslint');
 
 lint(['.'], {
-  timeout: 10000
+  timeout: 20000
 });
