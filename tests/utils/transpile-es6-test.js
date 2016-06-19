@@ -60,26 +60,39 @@ describe('transpileES6', function() {
       });
   });
 
-  it('does not add `use strict` if `no use strict` directive is present', function() {
-    var strictDirectiveFixture = path.join(transpileFixtures, 'conditional-use-strict');
+  describe('`conditional-use-strict` plugin', function() {
+    var results;
 
-    var tree = transpileES6(strictDirectiveFixture);
+    beforeEach(function() {
+      var strictDirectiveFixture = path.join(transpileFixtures, 'conditional-use-strict');
 
-    builder = new broccoli.Builder(tree);
+      var tree = transpileES6(strictDirectiveFixture);
 
-    return builder.build()
-      .then(function(results) {
-        expect(file(results.directory + '/without-directive.js'))
-          .to.match(/['"]use strict['"];/);
+      builder = new broccoli.Builder(tree);
 
-        expect(file(results.directory + '/with-no-use-strict-directive.js'))
-          .not.to.match(/['"]use strict['"];/);
-
-        expect(file(results.directory + '/with-no-use-strict-directive.js'))
-          .to.match(/['"]no use strict['"];/);
-
-        expect(file(results.directory + '/with-use-strict-directive.js'))
-          .to.match(/['"]use strict['"];/);
+      return builder.build().then(function(r) {
+        results = r;
       });
+    });
+
+    it('adds `use strict` if it is not present', function() {
+      expect(file(results.directory + '/without-directive.js'))
+        .to.match(/['"]use strict['"];/);
+    });
+
+    it('does not add `use strict` if `no use strict` is present', function() {
+      expect(file(results.directory + '/with-no-use-strict-directive.js'))
+        .not.to.match(/['"]use strict['"];/);
+    });
+
+    it('keeps `no use strict` if it is present', function() {
+      expect(file(results.directory + '/with-no-use-strict-directive.js'))
+        .to.match(/['"]no use strict['"];/);
+    });
+
+    it('keeps `use strict` if it is present', function() {
+      expect(file(results.directory + '/with-use-strict-directive.js'))
+        .to.match(/['"]use strict['"];/);
+    });
   });
 });
