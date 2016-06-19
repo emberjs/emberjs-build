@@ -11,6 +11,7 @@ chai.use(chaiFiles);
 
 var transpileES6 = require('../../lib/utils/transpile-es6');
 var transpileFixtures = path.join(__dirname, '..', 'fixtures', 'transpile-es6');
+var transpileExpected = path.join(__dirname, '..', 'expected', 'transpile-es6');
 
 describe('transpileES6', function() {
   var builder;
@@ -28,11 +29,10 @@ describe('transpileES6', function() {
 
     builder = new broccoli.Builder(tree);
 
-    return builder.build()
-      .then(function(results) {
-        var filePath = results.directory + '/some-file.js';
-        expect(file(filePath)).not.to.contain('=>');
-      });
+    return builder.build().then(function(results) {
+      expect(file(results.directory + '/some-file.js'))
+        .to.equal(file(transpileExpected + '/arrow-functions/some-file.js').content.trim());
+    });
   });
 
   it('correctly transpile classes', function() {
@@ -42,22 +42,10 @@ describe('transpileES6', function() {
 
     builder = new broccoli.Builder(tree);
 
-    return builder.build()
-      .then(function(results) {
-        var filePath = results.directory + '/some-file.js';
-        var f = file(filePath);
-
-        expect(f).not.to.contain('class A');
-
-        // Ensure Babel has inserted its class helpers
-        // TODO: flip this assertion when switching to global helpers
-        expect(f).to.contain('_inherits');
-        expect(f).to.contain('_classCallCheck');
-
-        // IE <= 10 does not support __proto__, so we cannot use it for statics
-        expect(f).not.to.contain('__proto__');
-        expect(f).to.contain('_defaults');
-      });
+    return builder.build().then(function(results) {
+      expect(file(results.directory + '/some-file.js'))
+        .to.equal(file(transpileExpected + '/classes/some-file.js').content.trim());
+    });
   });
 
   describe('`conditional-use-strict` plugin', function() {
@@ -77,22 +65,17 @@ describe('transpileES6', function() {
 
     it('adds `use strict` if it is not present', function() {
       expect(file(results.directory + '/without-directive.js'))
-        .to.match(/['"]use strict['"];/);
-    });
-
-    it('does not add `use strict` if `no use strict` is present', function() {
-      expect(file(results.directory + '/with-no-use-strict-directive.js'))
-        .not.to.match(/['"]use strict['"];/);
+        .to.equal(file(transpileExpected + '/conditional-use-strict/without-directive.js').content.trim());
     });
 
     it('keeps `no use strict` if it is present', function() {
       expect(file(results.directory + '/with-no-use-strict-directive.js'))
-        .to.match(/['"]no use strict['"];/);
+        .to.equal(file(transpileExpected + '/conditional-use-strict/with-no-use-strict-directive.js').content.trim());
     });
 
     it('keeps `use strict` if it is present', function() {
       expect(file(results.directory + '/with-use-strict-directive.js'))
-        .to.match(/['"]use strict['"];/);
+        .to.equal(file(transpileExpected + '/conditional-use-strict/with-use-strict-directive.js').content.trim());
     });
   });
 });
