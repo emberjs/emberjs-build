@@ -1,6 +1,6 @@
-enifed("without-directive", ["exports"], function (exports) {
+enifed("without-directive", [], function () {
   "use strict";
 
   function nothingHere() {}
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpdGhvdXQtZGlyZWN0aXZlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLFdBQVMsV0FBVyxHQUFHLEVBQUciLCJmaWxlIjoid2l0aG91dC1kaXJlY3RpdmUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJmdW5jdGlvbiBub3RoaW5nSGVyZSgpIHsgfVxuIl19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpdGhvdXQtZGlyZWN0aXZlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLFdBQVMsV0FBVCxHQUF1QixDQUFHIiwiZmlsZSI6IndpdGhvdXQtZGlyZWN0aXZlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZnVuY3Rpb24gbm90aGluZ0hlcmUoKSB7IH1cbiJdfQ==
