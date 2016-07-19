@@ -81,6 +81,8 @@ describe('get-es6-package', function() {
         var outputPath = results.directory;
 
         expect(walkSync(outputPath)).to.deep.equal([
+          'ember-metal.jscs-test.js',
+          'ember-metal.jshint.js',
           'ember-metal/',
           'ember-metal/alias.jscs-test.js',
           'ember-metal/alias.jshint.js',
@@ -104,9 +106,7 @@ describe('get-es6-package', function() {
           'ember-metal/tests/streams/',
           'ember-metal/tests/streams/simple_test.js',
           'ember-metal/tests/streams/simple_test.jscs-test.js',
-          'ember-metal/tests/streams/simple_test.jshint.js',
-          'ember-metal.jscs-test.js',
-          'ember-metal.jshint.js'
+          'ember-metal/tests/streams/simple_test.jshint.js'
         ]);
       });
   });
@@ -193,6 +193,7 @@ describe('get-es6-package', function() {
         var outputPath = results.directory;
 
         expect(walkSync(outputPath)).to.deep.equal([
+          'htmlbars-util.js',
           'htmlbars-util/',
           'htmlbars-util/array-utils.js',
           'htmlbars-util/handlebars/',
@@ -201,8 +202,7 @@ describe('get-es6-package', function() {
           'htmlbars-util/namespaces.js',
           'htmlbars-util/object-utils.js',
           'htmlbars-util/quoting.js',
-          'htmlbars-util/safe-string.js',
-          'htmlbars-util.js'
+          'htmlbars-util/safe-string.js'
         ]);
       });
   });

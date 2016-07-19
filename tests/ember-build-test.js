@@ -88,7 +88,8 @@ describe('ember-build', function() {
           'ember-runtime': { vendorRequirements: [], requirements: []},
           'ember-debug': {},
           'ember-template-compiler': {},
-          'ember-htmlbars-template-compiler': {}
+          'ember-htmlbars-template-compiler': {},
+          'ember-templates': {}
         }
       });
     });

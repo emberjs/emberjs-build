@@ -38,9 +38,9 @@ describe('htmlbars-package', function() {
   */
   it('correctly creates a htmlbars tree', function() {
     var expected = [
+      'htmlbars-util.js',
       'htmlbars-util/',
-      'htmlbars-util/safe-string.js',
-      'htmlbars-util.js'
+      'htmlbars-util/safe-string.js'
     ];
 
     var tree = htmlbarsPackage('htmlbars-util', {

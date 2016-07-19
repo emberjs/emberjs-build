@@ -1,6 +1,19 @@
 ;(function() {
 
 
+enifed("ember-metal", ["exports"], function (exports) {
+  "use strict";
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlbWJlci1tZXRhbC5qcyIsInNvdXJjZXNDb250ZW50IjpbXX0=
+enifed('ember-metal.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  module('JSHint - .');
+  test('ember-metal.js should pass jshint', function () {
+    ok(true, 'ember-metal.js should pass jshint.');
+  });
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtYmVyLW1ldGFsLmpzaGludC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxRQUFNLENBQUMsWUFBWSxDQUFDLENBQUM7QUFDckIsTUFBSSxDQUFDLG1DQUFtQyxFQUFFLFlBQVc7QUFDbkQsTUFBRSxDQUFDLElBQUksRUFBRSxvQ0FBb0MsQ0FBQyxDQUFDO0dBQ2hELENBQUMsQ0FBQyIsImZpbGUiOiJlbWJlci1tZXRhbC5qc2hpbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUoJ0pTSGludCAtIC4nKTtcbnRlc3QoJ2VtYmVyLW1ldGFsLmpzIHNob3VsZCBwYXNzIGpzaGludCcsIGZ1bmN0aW9uKCkgeyBcbiAgb2sodHJ1ZSwgJ2VtYmVyLW1ldGFsLmpzIHNob3VsZCBwYXNzIGpzaGludC4nKTsgXG59KTtcbiJdfQ==
 enifed("ember-metal/alias", ["exports"], function (exports) {
   "use strict";
 });
@@ -125,17 +138,4 @@ enifed('ember-metal/tests/streams/simple_test.jshint', ['exports'], function (ex
   });
 });
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtYmVyLW1ldGFsL3Rlc3RzL3N0cmVhbXMvc2ltcGxlX3Rlc3QuanNoaW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLFFBQU0sQ0FBQyxvQ0FBb0MsQ0FBQyxDQUFDO0FBQzdDLE1BQUksQ0FBQyw2REFBNkQsRUFBRSxZQUFXO0FBQzdFLE1BQUUsQ0FBQyxJQUFJLEVBQUUsOERBQThELENBQUMsQ0FBQztHQUMxRSxDQUFDLENBQUMiLCJmaWxlIjoiZW1iZXItbWV0YWwvdGVzdHMvc3RyZWFtcy9zaW1wbGVfdGVzdC5qc2hpbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUoJ0pTSGludCAtIGVtYmVyLW1ldGFsL3Rlc3RzL3N0cmVhbXMnKTtcbnRlc3QoJ2VtYmVyLW1ldGFsL3Rlc3RzL3N0cmVhbXMvc2ltcGxlX3Rlc3QuanMgc2hvdWxkIHBhc3MganNoaW50JywgZnVuY3Rpb24oKSB7IFxuICBvayh0cnVlLCAnZW1iZXItbWV0YWwvdGVzdHMvc3RyZWFtcy9zaW1wbGVfdGVzdC5qcyBzaG91bGQgcGFzcyBqc2hpbnQuJyk7IFxufSk7XG4iXX0=
-enifed("ember-metal", ["exports"], function (exports) {
-  "use strict";
-});
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlbWJlci1tZXRhbC5qcyIsInNvdXJjZXNDb250ZW50IjpbXX0=
-enifed('ember-metal.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  module('JSHint - .');
-  test('ember-metal.js should pass jshint', function () {
-    ok(true, 'ember-metal.js should pass jshint.');
-  });
-});
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtYmVyLW1ldGFsLmpzaGludC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxRQUFNLENBQUMsWUFBWSxDQUFDLENBQUM7QUFDckIsTUFBSSxDQUFDLG1DQUFtQyxFQUFFLFlBQVc7QUFDbkQsTUFBRSxDQUFDLElBQUksRUFBRSxvQ0FBb0MsQ0FBQyxDQUFDO0dBQ2hELENBQUMsQ0FBQyIsImZpbGUiOiJlbWJlci1tZXRhbC5qc2hpbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUoJ0pTSGludCAtIC4nKTtcbnRlc3QoJ2VtYmVyLW1ldGFsLmpzIHNob3VsZCBwYXNzIGpzaGludCcsIGZ1bmN0aW9uKCkgeyBcbiAgb2sodHJ1ZSwgJ2VtYmVyLW1ldGFsLmpzIHNob3VsZCBwYXNzIGpzaGludC4nKTsgXG59KTtcbiJdfQ==
 }());
