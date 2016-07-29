@@ -21,7 +21,8 @@ describe('test-config-tree', function() {
 
   it('returns a correct tree', function() {
     var tree = getTestConfigTree({
-      libPath: testLibPath
+      libPath: testLibPath,
+      features: { }
     });
 
     builder = new broccoli.Builder(tree);
@@ -36,7 +37,11 @@ describe('test-config-tree', function() {
 
   it('correctly replaces `{{FEATURES}}` tag', function() {
     var tree = getTestConfigTree({
-      libPath: testLibPath
+      libPath: testLibPath,
+      features: {
+        development: { 'foo-bar': null, baz: true },
+        production: { 'foo-bar': false, baz: true }
+      }
     });
 
     builder = new broccoli.Builder(tree);
