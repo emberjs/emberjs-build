@@ -9,7 +9,10 @@ module.exports = function ensureMethodReturnsTree(methodName) {
   describe(methodName, function() {
     this.timeout(5000);
 
-    var emberBuild = new EmberBuild({ version: 'foo' });
+    var emberBuild = new EmberBuild({
+      version: 'foo',
+      features: { development: {}, production: {} }
+    });
 
     before(function() {
       emberBuild._trees.prodCompiledSource = {};

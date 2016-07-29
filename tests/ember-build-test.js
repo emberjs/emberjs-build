@@ -23,6 +23,7 @@ describe('ember-build', function() {
     it('returns a proper tree', function() {
       var emberBuild = new EmberBuild({
         version: 'foo',
+        features: { development: {}, production: {} },
         packages: {
           container: {
             trees:              null,
@@ -84,6 +85,7 @@ describe('ember-build', function() {
 
       emberBuild = new EmberBuildStubbedSubclass({
         version: 'foo',
+        features: { development: {}, production: {} },
         packages: {
           'container': {},
           'ember-metal': {},
