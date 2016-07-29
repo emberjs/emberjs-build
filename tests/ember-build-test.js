@@ -58,4 +58,67 @@ describe('ember-build', function() {
       });
     });
   });
+
+  describe('getDistTrees', function() {
+    var count = 0;
+    var emberBuild;
+    var EmberBuildStubbedSubclass;
+
+    function countCalls(target, name) {
+      target[name] = function() {
+        count++;
+        return EmberBuild.prototype[name].apply(this, arguments);
+      };
+    }
+
+    before(function() {
+      count = 0;
+
+      EmberBuildStubbedSubclass = EmberBuild.extend();
+
+      countCalls(EmberBuildStubbedSubclass.prototype, '_getBowerTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_getTestConfigTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateCompiledSourceTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateCompiledTestsTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateTestingCompiledSourceTree');
+
+      emberBuild = new EmberBuildStubbedSubclass({
+        version: 'foo',
+        packages: {
+          'container': {},
+          'ember-metal': {},
+          'ember-environment': { skipTests: true },
+          'ember-console': { skipTests: true },
+          'ember-runtime': { vendorRequirements: [], requirements: []},
+          'ember-debug': {},
+          'ember-template-compiler': {},
+          'ember-htmlbars-template-compiler': {},
+          'ember-templates': {}
+        }
+      });
+    });
+
+    after(function() {
+      emberBuild = null;
+    });
+
+    it('development tree is built up properly', function() {
+      emberBuild.getDistTrees();
+
+      expect(count).to.equal(5);
+    });
+
+    it('production tree is build up properly', function() {
+      countCalls(EmberBuildStubbedSubclass.prototype, '_getS3TestRunner');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_buildRuntimeTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateProdCompiledTestsTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateProdCompiledSourceTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateDeprecatedDebugFileTree');
+      countCalls(EmberBuildStubbedSubclass.prototype, '_generateMinifiedCompiledSourceTree');
+
+      emberBuild.getDistTrees();
+
+      expect(count).to.equal(11);
+    });
+  });
 });
