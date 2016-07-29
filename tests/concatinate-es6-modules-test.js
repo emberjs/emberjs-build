@@ -42,7 +42,8 @@ describe('concatenate-es6-modules', function() {
       includeLoader: true,
       destFile: '/ember-tests.js',
       generators: generatorsPath,
-      loader:     loaderTree
+      loader:     loaderTree,
+      version: 'foo'
     });
 
     builder = new broccoli.Builder(compiledTests);
