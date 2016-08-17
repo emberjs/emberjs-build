@@ -16,6 +16,7 @@ var generatorsPath     = path.join(__dirname, './fixtures/generators');
 var fixturesTestPath   = path.join(__dirname, './fixtures/concat-tests');
 var expectedTestPath   = path.join(__dirname, './expected/concat-tests');
 var fixturesLoaderPath = path.join(__dirname, './fixtures/loader');
+var fixturesExternalHelpersPath = path.join(__dirname, './fixtures/external-helpers');
 
 describe('concatenate-es6-modules', function() {
   var builder;
@@ -27,6 +28,11 @@ describe('concatenate-es6-modules', function() {
 
   var loaderTree = new Funnel(fixturesLoaderPath, {
     files: ['loader/index.js'],
+    destDir: '/'
+  });
+
+  var externalHelpersTree = new Funnel(fixturesExternalHelpersPath, {
+    files: ['external-helpers/*.js'],
     destDir: '/'
   });
 
@@ -43,6 +49,7 @@ describe('concatenate-es6-modules', function() {
       destFile: '/ember-tests.js',
       generators: generatorsPath,
       loader:     loaderTree,
+      externalHelpers: externalHelpersTree,
       version: 'foo'
     });
 
