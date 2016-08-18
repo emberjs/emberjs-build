@@ -4,7 +4,7 @@
   "description": "Build pipeline for Ember.js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 5000 tests/*",
+    "test": "mocha --timeout 9000 tests/*",
     "test:debug": "mocha debug --timeout 5000 tests/*"
   },
   "repository": {
@@ -35,7 +35,7 @@
   "dependencies": {
     "amd-name-resolver": "0.0.4",
     "broccoli": "0.16.3",
-    "broccoli-babel-transpiler": "^5.4.5",
+    "broccoli-babel-transpiler": "^5.6.1",
     "broccoli-concat": "^2.0.0",
     "broccoli-file-creator": "^1.0.0",
     "broccoli-funnel": "^1.0.1",
