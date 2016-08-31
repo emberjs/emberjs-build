@@ -32,7 +32,7 @@ describe('concatenate-es6-modules', function() {
   });
 
   var externalHelpersTree = new Funnel(fixturesExternalHelpersPath, {
-    files: ['external-helpers/*.js'],
+    includes: ['external-helpers/*.js'],
     destDir: '/'
   });
 
