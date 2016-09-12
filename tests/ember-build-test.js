@@ -88,6 +88,7 @@ describe('ember-build', function() {
         features: { development: {}, production: {} },
         packages: {
           'container': {},
+          'ember-utils': {},
           'ember-metal': {},
           'ember-environment': { skipTests: true },
           'ember-console': { skipTests: true },
