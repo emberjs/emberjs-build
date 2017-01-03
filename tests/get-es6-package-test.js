@@ -9,7 +9,7 @@ var htmlbarsPackage = require('../lib/htmlbars-package');
 
 var getES6Package = require('../lib/get-es6-package');
 
-var fixtureLibPath, fixtureTestPath, fixtureLoaderPath, fixtureGeneratorsPath, expectedPath, configPath;
+var fixtureLibPath, fixtureTestPath, fixtureLoaderPath, fixtureGeneratorsPath, expectedPath;
 
 function mockTree(name) {
   // good enough for our use-case, we can always make it more u
@@ -64,12 +64,10 @@ describe('get-es6-package', function() {
 
     fixtureLibPath  = path.join(__dirname, 'fixtures/packages/ember-metal/lib');
     fixtureTestPath = path.join(__dirname, 'fixtures/packages/ember-metal/tests');
-    configPath      = path.join(__dirname, 'fixtures/jscs/.jscsrc');
 
     var fullTree = getES6Package(packages, 'ember-metal', {
       libPath:    fixtureLibPath,
       testPath:   fixtureTestPath,
-      configPath: configPath
     });
 
     builder = new broccoli.Builder(fullTree.tests);
@@ -81,32 +79,23 @@ describe('get-es6-package', function() {
         var outputPath = results.directory;
 
         expect(walkSync(outputPath)).to.deep.equal([
-          'ember-metal.jscs-test.js',
-          'ember-metal.jshint.js',
+          'ember-metal.lint-test.js',
           'ember-metal/',
-          'ember-metal/alias.jscs-test.js',
-          'ember-metal/alias.jshint.js',
-          'ember-metal/array.jscs-test.js',
-          'ember-metal/array.jshint.js',
-          'ember-metal/binding.jscs-test.js',
-          'ember-metal/binding.jshint.js',
+          'ember-metal/alias.lint-test.js',
+          'ember-metal/array.lint-test.js',
+          'ember-metal/binding.lint-test.js',
           'ember-metal/streams/',
-          'ember-metal/streams/simple.jscs-test.js',
-          'ember-metal/streams/simple.jshint.js',
+          'ember-metal/streams/simple.lint-test.js',
           'ember-metal/tests/',
           'ember-metal/tests/alias_test.js',
-          'ember-metal/tests/alias_test.jscs-test.js',
-          'ember-metal/tests/alias_test.jshint.js',
+          'ember-metal/tests/alias_test.lint-test.js',
           'ember-metal/tests/array_test.js',
-          'ember-metal/tests/array_test.jscs-test.js',
-          'ember-metal/tests/array_test.jshint.js',
+          'ember-metal/tests/array_test.lint-test.js',
           'ember-metal/tests/binding_test.js',
-          'ember-metal/tests/binding_test.jscs-test.js',
-          'ember-metal/tests/binding_test.jshint.js',
+          'ember-metal/tests/binding_test.lint-test.js',
           'ember-metal/tests/streams/',
           'ember-metal/tests/streams/simple_test.js',
-          'ember-metal/tests/streams/simple_test.jscs-test.js',
-          'ember-metal/tests/streams/simple_test.jshint.js'
+          'ember-metal/tests/streams/simple_test.lint-test.js'
         ]);
       });
   });
