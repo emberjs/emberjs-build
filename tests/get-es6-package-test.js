@@ -198,7 +198,7 @@ describe('get-es6-package', function() {
 
   it('compiles typescript if option is enabled', function() {
     var packages = {
-      'container': { hasTypescript: true }
+      'container': { isTypeScript: true }
     };
 
     fixtureLibPath  = path.join(__dirname, 'fixtures/packages/container/lib');
