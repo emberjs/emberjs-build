@@ -42,7 +42,7 @@ describe('concatenate-es6-modules', function() {
     }
   });
 
-  it('correctly concats test tree into one file properly', function() {
+  it.only('correctly concats test tree into one file properly', function() {
     var compiledTests = concatenateES6Modules(testTree, {
       es3Safe:   false,
       includeLoader: true,

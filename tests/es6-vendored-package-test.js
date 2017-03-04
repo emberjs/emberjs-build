@@ -43,7 +43,6 @@ describe('es6-vendored-package', function() {
     return builder.build()
       .then(function(results) {
         var outputPath = results.directory;
-
         expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
       });
   });
