@@ -99,6 +99,10 @@ describe('ember-build', function() {
           'ember-templates': {}
         }
       });
+
+      emberBuild._vendoredPackages = {
+        loader: {}
+      };
     });
 
     after(function() {
