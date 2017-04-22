@@ -195,4 +195,29 @@ describe('get-es6-package', function() {
         ]);
       });
   });
+
+  it('compiles typescript if option is enabled', function() {
+    var packages = {
+      'container': { isTypeScript: true }
+    };
+
+    fixtureLibPath  = path.join(__dirname, 'fixtures/packages/container/lib');
+    fixtureTestPath = path.join(__dirname, 'fixtures/packages/container/tests');
+
+    var fullTree = getES6Package(packages, 'container', {
+      libPath:  fixtureLibPath,
+      testPath: fixtureTestPath
+    });
+
+    expectedPath = path.join(__dirname, 'expected/packages/container/');
+
+    builder = new broccoli.Builder(fullTree.lib);
+
+    return builder.build()
+      .then(function(results) {
+        var outputPath = results.directory;
+
+        expect(walkSync(outputPath)).to.deep.equal(walkSync(expectedPath));
+      });
+  });
 });
