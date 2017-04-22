@@ -47,35 +47,4 @@ describe('transpileES6', function() {
         .to.equal(file(transpileExpected + '/classes/some-file.js').content.trim());
     });
   });
-
-  describe('`conditional-use-strict` plugin', function() {
-    var results;
-
-    beforeEach(function() {
-      var strictDirectiveFixture = path.join(transpileFixtures, 'conditional-use-strict');
-
-      var tree = transpileES6(strictDirectiveFixture);
-
-      builder = new broccoli.Builder(tree);
-
-      return builder.build().then(function(r) {
-        results = r;
-      });
-    });
-
-    it('adds `use strict` if it is not present', function() {
-      expect(file(results.directory + '/without-directive.js'))
-        .to.equal(file(transpileExpected + '/conditional-use-strict/without-directive.js').content.trim());
-    });
-
-    it('keeps `no use strict` if it is present', function() {
-      expect(file(results.directory + '/with-no-use-strict-directive.js'))
-        .to.equal(file(transpileExpected + '/conditional-use-strict/with-no-use-strict-directive.js').content.trim());
-    });
-
-    it('keeps `use strict` if it is present', function() {
-      expect(file(results.directory + '/with-use-strict-directive.js'))
-        .to.equal(file(transpileExpected + '/conditional-use-strict/with-use-strict-directive.js').content.trim());
-    });
-  });
 });
